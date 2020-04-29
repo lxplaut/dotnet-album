@@ -25,9 +25,10 @@ stages:
         SourcePath: '$(Build.Repository.LocalPath)\docker-compose.yaml'
         azureSubscription: 'Free Trial(7bb3c591-592f-477e-9762-c22783c527d5)'
         Destination: 'AzureVMs'
-        storage: 'containersdiag251'
+        storage: 'sofd01'
         resourceGroup: 'CONTAINERS'
         MachineNames: 'docker-05'
         vmsAdminUserName: 'gshah'
         vmsAdminPassword: 'ESTcC8HE0iRxiBa'
+        TargetPath: 'C:\Users\gshah\test'
  
