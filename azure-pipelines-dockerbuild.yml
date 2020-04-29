@@ -24,6 +24,20 @@ stages:
       displayName: Build an image
       inputs:
         command: build
-        dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
+        dockerfile: 'Dockerfile'
         tags: |
           $(tag)
+
+- stage: Dev 
+  displayName: Deploy to Dev
+  jobs:  
+  - job: Compose Deploy
+    displayName: Compose Deploy
+    steps:
+    - task: WindowsMachineFileCopy@2
+      inputs:
+        SourcePath: '$(Build.SourcesDirectory)/docker-compose.yaml'
+        MachineNames: '13.91.227.5'
+        AdminUserName: 'gshah'
+        AdminPassword: 'ESTcC8HE0iRxiBa'
+        TargetPath: '\\test'
