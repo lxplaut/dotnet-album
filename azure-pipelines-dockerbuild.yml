@@ -27,13 +27,6 @@ stages:
         dockerfile: 'Dockerfile'
         tags: |
           $(tag)
-
-- stage: Dev 
-  displayName: Deploy to Dev
-  jobs:  
-  - job: Compose Deploy
-    displayName: Compose Deploy
-    steps:
     - task: WindowsMachineFileCopy@2
       inputs:
         SourcePath: '$(Build.SourcesDirectory)/docker-compose.yaml'
