@@ -22,7 +22,7 @@ stages:
     steps:
     - task: WindowsMachineFileCopy@2
       inputs:
-        SourcePath: 'docker-compose.yaml'
+        SourcePath: '$(Build.Repository.LocalPath)\docker-compose.yaml'
         MachineNames: '13.91.227.5'
         AdminUserName: 'gshah'
         AdminPassword: '$WINPASS'
