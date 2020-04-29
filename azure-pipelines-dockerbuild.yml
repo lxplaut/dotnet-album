@@ -20,17 +20,10 @@ stages:
     pool:
       vmImage: 'windows-2019'
     steps:
-    - task: Docker@2
-      displayName: Build an image
-      inputs:
-        command: build
-        dockerfile: 'Dockerfile'
-        tags: |
-          $(tag)
     - task: WindowsMachineFileCopy@2
       inputs:
-        SourcePath: '$(Build.SourcesDirectory)/docker-compose.yaml'
+        SourcePath: 'docker-compose.yaml'
         MachineNames: '13.91.227.5'
         AdminUserName: 'gshah'
-        AdminPassword: 'ESTcC8HE0iRxiBa'
+        AdminPassword: '$WINPASS'
         TargetPath: '\\test'
