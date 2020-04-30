@@ -30,10 +30,10 @@ stages:
         dockerComposeCommand: 'up -d'
         dockerHostEndpoint: 'docker-05'
 - stage: compose 
-  displayName: Compose Up 
+  displayName: compose 
   jobs: 
-  - job: run compose 
-    displayName: Build    
+  - job: composeup
+    displayName: composeup    
     pool:
       vmImage: 'windows-latest'
     steps: 
