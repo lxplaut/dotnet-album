@@ -17,3 +17,8 @@ spec:
           image: sofdreg.azurecr.io/schoolofdevops/albumviewer
           ports:
           - containerPort: 80
+          env: 
+          - key: Data:Provider
+            value: MySQL
+          - key: Data:ConnectionString
+            value: Server=database;Port=4000;Database=AlbumViewer;User=root;SslMode=None
