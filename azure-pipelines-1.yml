@@ -47,4 +47,8 @@ stages:
         dockerComposeFile: '**/docker-compose.yaml'
         action: 'Write service image digests'
         imageDigestComposeFile: '$(Build.StagingDirectory)/docker-compose.images.yml'
-
+    - task: PublishPipelineArtifact@1
+      inputs:
+        targetPath: '$(Build.StagingDirectory)/docker-compose.images.yml'
+        artifact: 'imagedigest'
+        publishLocation: 'pipeline'
