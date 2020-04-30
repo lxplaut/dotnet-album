@@ -44,7 +44,7 @@ stages:
         containerregistrytype: 'Azure Container Registry'
         azureSubscription: 'Free Trial(7bb3c591-592f-477e-9762-c22783c527d5)'
         azureContainerRegistry: '{"loginServer":"sofdreg.azurecr.io", "id" : "/subscriptions/7bb3c591-592f-477e-9762-c22783c527d5/resourceGroups/containers/providers/Microsoft.ContainerRegistry/registries/sofdreg"}'
-        dockerComposeFile: '**/docker-compose.yml'
+        dockerComposeFile: '**/docker-compose.yaml'
         action: 'Write service image digests'
         imageDigestComposeFile: '$(Build.StagingDirectory)/docker-compose.images.yml'
 
