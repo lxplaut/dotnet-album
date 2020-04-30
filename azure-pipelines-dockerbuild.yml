@@ -20,15 +20,9 @@ stages:
     pool:
       vmImage: 'windows-2019'
     steps:
-    - task: AzureFileCopy@4
-      inputs:
-        SourcePath: '$(Build.Repository.LocalPath)\docker-compose.yaml'
-        azureSubscription: 'Free Trial(7bb3c591-592f-477e-9762-c22783c527d5)'
-        Destination: 'AzureVMs'
-        storage: 'sofd01'
-        resourceGroup: 'CONTAINERS'
-        MachineNames: 'docker-05'
-        vmsAdminUserName: 'gshah'
-        vmsAdminPassword: 'ESTcC8HE0iRxiBa'
-        TargetPath: 'C:\Users\gshah\test'
- 
+- task: Docker@2
+  inputs:
+    containerRegistry: 'sofdreg'
+    repository: 'schoolofdevops/albumviewer'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
