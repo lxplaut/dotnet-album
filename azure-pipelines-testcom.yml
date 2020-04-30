@@ -20,19 +20,12 @@ stages:
     pool:
       vmImage: 'windows-latest'
     steps:
-    - task: Docker@2
-      displayName: Build an image
-      inputs:
-        command: build
-        dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
-        tags: |
-          $(tag)
     - task: DockerCompose@0
       inputs:
         containerregistrytype: 'Azure Container Registry'
         azureSubscription: 'Free Trial(7bb3c591-592f-477e-9762-c22783c527d5)'
         azureContainerRegistry: '{"loginServer":"sofdreg.azurecr.io", "id" : "/subscriptions/7bb3c591-592f-477e-9762-c22783c527d5/resourceGroups/containers/providers/Microsoft.ContainerRegistry/registries/sofdreg"}'
-        dockerComposeFile: '**/docker-compose.yml'
+        dockerComposeFile: '**/docker-compose.yaml'
         action: 'Run a Docker Compose command'
         dockerComposeCommand: 'up -d'
         dockerHostEndpoint: 'docker-05'
